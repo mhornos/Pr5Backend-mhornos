@@ -165,7 +165,7 @@ a button {
 .articles-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
@@ -174,8 +174,8 @@ a button {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 300px; /* Ajustar ancho de la cajita */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+    width: 400px; /* Ajustar ancho de la cajita */
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
@@ -186,15 +186,14 @@ a button {
 /* Animación al pasar el ratón */
 .article-box:hover {
     transform: scale(1.05); /* Efecto de zoom suave */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
 }
 
 /* Estilo de las imágenes dentro de las cajitas */
 .article-box img {
-    width: 100%; /* Cambiar a 100% para ocupar todo el ancho de la caja */
+    width: 105%; /* Cambiar a 100% para ocupar todo el ancho de la caja */
     height: auto; /* Mantener proporción de la imagen */
-    max-height: 200px; /* Ajustar altura máxima para mantener proporción */
     border-radius: 8px;
+
     margin-top: 10px;
 }
 
