@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../Estils/estils.css">
 </head>
 <body>
-    <h2>Canviar password:</h2><br>
+    <h2>Canviar contrasenya:</h2><br>
     <form action="../Controlador/canviarPassw.php" method="post">
     <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya actual"> 
     <input type="password" id="contrasenyaNova1" name="contrasenyaNova1" placeholder="Nova contrasenya">

@@ -14,7 +14,8 @@
     <input type="text" id="usuari" name="usuari" placeholder="Usuari"> 
     <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya"> 
     <input type="submit" name="Login" value="Login">
-    No tinc compte: <a href="Register.php"> Crea un compte </a>
+    No tinc compte: <a href="Register.php"> Crea un compte </a><br>
+    He oblidat la contrasenya: <a href="forgotPassw.php"> Recuperar-la </a>
     </form>
     <a href="../Index.php?pagina=<?php echo isset($_GET['pagina']) ? $_GET['pagina'] : 1; ?>">
             <button>Tornar a inici</button>
