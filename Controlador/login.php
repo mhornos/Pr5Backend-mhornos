@@ -8,7 +8,6 @@ if (session_status() === PHP_SESSION_NONE) {
 require "../Model/login.php";
 require "cookies.php";
 
-
 // procesem el formulari de login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuari = $_POST["usuari"] ?? null;
@@ -41,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<!-- tornem a mostrar el formulari amb les dades ja introduides per agilitzar el proces de repetir l'accio -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="usuari" placeholder="Usuari" value="<?php echo htmlspecialchars($usuari ?? ''); ?>">
         <input type="password" name="contrasenya" placeholder="Contrasenya" value="">
         <input type="submit" name="Login" value="Login">
-        No tinc compte: <a href="Register.php"> Crea un compte </a>
+        No tinc compte: <a href="../Vistes/Register.php"> Crea un compte </a><br>
+        He oblidat la contrasenya: <a href="../Vistes/forgotPassw.php"> Recuperar-la </a>
+
     </form>
 
     <br><a href="../Index.php?pagina=<?php echo isset($_GET['pagina']) ? $_GET['pagina'] : 1; ?>">

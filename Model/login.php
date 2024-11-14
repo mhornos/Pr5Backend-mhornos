@@ -4,10 +4,8 @@
 // funcio per comprobar que l'usuari existeix
 function iniciarSesio($usuari,$contrasenya){
     try{
-        $errors = [];
-
-        //ens connectem amb la base de dades
-        $connexio = new PDO('mysql:host=localhost;dbname=pt05_miguel_hornos', 'root', '');
+        // ens connectem amb la base de dades
+        require "connexio.php";
 
         //comprobem si l'usuari existeix
         $existeixUsuari = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");

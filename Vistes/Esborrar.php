@@ -13,10 +13,9 @@
     <!-- formulari per escollir l'id per borrar article de la bd -->
     <h2>Eliminar vehicle de la BD</h2><br>
 
-    <form action="../Model/crud.php" method="post">
+    <form action="../Controlador/esborrar.php" method="post">
         <table>
-        <label for="id">ID:  </label>    
-        <input type="text" id="id" name="id" placeholder="Introdueix ID del teu vehicle a eliminar*"> <br/>
+        <input type="text" id="id" name="id" placeholder="Introdueix ID del teu vehicle a eliminar*" value="<?php echo htmlspecialchars($imatge ?? ''); ?>"> <br/>
 
         <input type="submit" value="Eliminar" name="Enviar">
         <input type="reset" value="Buidar">
@@ -27,10 +26,10 @@
     <br><a href="../Index.php?pagina=<?php echo isset($_GET['pagina']) ? $_GET['pagina'] : 1; ?>">
         <button>Tornar a inici</button>
     </a><br>
-</body>
+</body> 
 </html>
 
 <!-- mostra la llista d'articles a sota de tot -->
 <?php
-include "../Model/mostrarLlista.php";
+include_once "../Model/mostrarLlista.php";
 ?>

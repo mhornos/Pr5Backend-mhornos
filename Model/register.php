@@ -7,8 +7,7 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        $connexio = new PDO('mysql:host=localhost;dbname=pt05_miguel_hornos', 'root', '');
-        $connexio->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        require "connexio.php";
 
         // comprovem si el nom d'usuari ja existeix
         $consultaExistenciaUsuari = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");

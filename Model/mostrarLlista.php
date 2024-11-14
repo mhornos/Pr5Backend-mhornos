@@ -5,8 +5,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 // conectar a la bd amb PDO
 try {
-    $connexio = new PDO('mysql:host=localhost;dbname=pt05_miguel_hornos', 'root', '');
-    $connexio->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //ens conectem a la bd
+    require "connexio.php";
     
     // definir el el nombre de resultats per página
     $resultatsPerPagina = 5;

@@ -13,7 +13,7 @@
     <form action="../Controlador/forgotPassw.php" method="post">
     <p>T'enviarem un correu per reiniciar la teva contrasenya</p><br>
 
-    <input type="text" id="correu" name="correu" placeholder="El teu correu"> 
+    <input type="email" id="correu" name="correu" placeholder="El teu correu"> 
     <input type="submit" name="Enviar" value="Enviar">
     </form>
     <a href="../Index.php?pagina=<?php echo isset($_GET['pagina']) ? $_GET['pagina'] : 1; ?>">

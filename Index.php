@@ -22,7 +22,7 @@ require "Controlador/gestioSessio.php";
 </html>
 
 <?php
-include "Controlador/cookies.php";
-include "Vistes/navbar.php";
-include "Model/mostrarLlista.php";
+include_once "Controlador/cookies.php";
+include_once "Vistes/navbar.php";
+include_once "Model/mostrarLlista.php";
 ?>

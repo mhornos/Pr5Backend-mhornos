@@ -22,6 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "falta el nom d'usuari ❌";
     }
 
+    //el nom no pot tenir més de 20 caracters
+    if (strlen($usuari) > 20) {
+        $errors[] = "el nom no pot tenir més de 20 caràcters ❌";
+    }
+
     // comprovem si el correu està buit i si té un format vàlid
     if (empty($correu)) {
         $errors[] = "falta el correu ❌";
@@ -64,10 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    
-
-    
-
     // si no hi ha errors, creem l'usuari cridant la funció crearUsuari
     if (empty($errors)) {
         crearUsuari($usuari, $contrasenya, $correu, $ciutat);
@@ -102,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>La contrasenya ha de tenir almenys 8 caràcters, un número, una majúscula i una minúscula.</p><br>
 
         <input type="submit" value="Registrar-se">
-        Ja tinc un compte: <a href="Login.php"> Iniciar sessió </a>
+        Ja tinc un compte: <a href="../Vistes/Login.php"> Iniciar sessió </a>
 
     </form>
 

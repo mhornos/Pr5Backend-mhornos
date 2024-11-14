@@ -12,27 +12,22 @@
 </head>
 <body>
     <!-- formulario per omplir l'id i modificar el titol i el cos -->
-    <h2>Modificar vechicle de la BD</h2><br>
+    <h2>Modificar vehicle de la BD</h2><br>
 
-    <form action="../Model/crud.php" method="post">
+    <form action="../Controlador/modificar.php" method="post">
         <table>
         <label for="id">ID:  </label>    
-        <input type="text" id="id" name="id" placeholder="Introdueix ID del vehicle a editar*">
+        <input type="text" id="id" name="id" placeholder="Introdueix ID del vehicle a editar*" value="<?php echo htmlspecialchars($id ?? ''); ?>">
         
-            <label for="marca">Editar marca:  </label>    
-            <input type="text" id="marca" name="marca" placeholder="Edita la marca">
+        <input type="text" id="marca" name="marca" placeholder="Edita la marca" value="<?php echo htmlspecialchars($marca ?? ''); ?>">
 
-            <label for="model">Editar model: </label>    
-            <input type="text" id="model" name="model" placeholder="Edita el model">
+            <input type="text" id="model" name="model" placeholder="Edita el model" value="<?php echo htmlspecialchars($model ?? ''); ?>">
 
-            <label for="color">Editar color: </label>    
-            <input type="text" id="color" name="color" placeholder="Edita el color">
+            <input type="text" id="color" name="color" placeholder="Edita el color" value="<?php echo htmlspecialchars($color ?? ''); ?>">
 
-            <label for="matricula">Editar matricula:  </label>    
-            <input type="text" id="matricula" name="matricula" placeholder="Edita la matricula">
+            <input type="text" id="matricula" name="matricula" placeholder="Edita la matricula" value="<?php echo htmlspecialchars($matricula ?? ''); ?>">
 
-            <label for="imatge">Imatge del vehicle: </label>
-            <input type="text" id="imatge" name="imatge" placeholder="Introdueix l'enllaç de la imatge">
+            <input type="text" id="imatge" name="imatge" placeholder="Introdueix l'enllaç de la imatge" value="<?php echo htmlspecialchars($imatge ?? ''); ?>">
 
             <input type="submit" value="Modificar" name="Enviar">
             <input type="reset" value="Buidar">
@@ -47,5 +42,5 @@
 
 <!-- mostra la llista d'articles a sota de tot -->
 <?php
-include "../Model/mostrarLlista.php";
+include_once "../Model/mostrarLlista.php";
 ?>
