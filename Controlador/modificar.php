@@ -8,7 +8,6 @@ if (session_status() === PHP_SESSION_NONE) {
 // incloem el fitxer de modificar que conté la funció modificarArticle
 require "../Model/modificar.php";
 
-// comprovem si la petició s'ha fet mitjançant POST (formulari enviat)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // obtenim la informacio del formulari

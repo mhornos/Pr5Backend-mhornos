@@ -258,3 +258,51 @@ a button {
         opacity: 1; /* Acaba visible */
     }
 }
+
+/* Formulario de confirmación de eliminación */
+/* Fondo borroso */
+.overlay {
+    position: fixed; /* Asegura que cubra toda la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(10px); /* Aplica el filtro de desenfoque */
+    z-index: 999; /* Asegura que esté por encima del contenido */
+}
+
+/* Contenedor del formulario */
+.contenidor-formulari {
+    position: fixed; /* Mantiene el formulario fijo en el centro de la pantalla */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el formulario */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Asegura que el formulario esté sobre el fondo borroso */
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Estilos para los botones dentro del formulario */
+.contenidor-formulari input[type="submit"] {
+    width: auto;
+    padding: 12px 30px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contenidor-formulari input[type="submit"]:hover {
+    background-color: #636363;
+    transform: scale(1.05); /* Efecto de zoom suave */
+}

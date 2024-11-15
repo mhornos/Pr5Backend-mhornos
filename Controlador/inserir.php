@@ -8,9 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // incloem el fitxer de inserir que conté la funció insertArticle
 require "../Model/inserir.php";
 
-// comprovem si la petició s'ha fet mitjançant POST (formulari enviat)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // obtenim les dades del formulari
     $marca = $_POST["marca"] ?? null;
     $model = $_POST["model"] ?? null;

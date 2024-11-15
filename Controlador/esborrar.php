@@ -38,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- tornem a mostrar el formulari amb les dades ja introduides per agilitzar el proces de repetir l'accio -->
 <?php
-include "../Vistes/Esborrar.php";
+include_once "../Vistes/Esborrar.php";
 ?>
