@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require "Controlador/gestioSessio.php";
+require_once "Controlador/gestioSessio.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,5 +24,5 @@ require "Controlador/gestioSessio.php";
 <?php
 include_once "Controlador/cookies.php";
 include_once "Vistes/navbar.php";
-include_once "Model/mostrarLlista.php";
+include_once "Controlador/llistaArticles.php";
 ?>

@@ -14,7 +14,7 @@ if (isset($_SESSION['usuari'])) {
         if ($tempsInactiu > $limitInactiu) {
             session_unset(); // netejar variables de sessió
             session_destroy(); // destruir la sessió
-            require "cookies.php";
+            require_once "cookies.php";
             eliminarCookie("usuari");
 
             // missatge que la sessió ha caducat

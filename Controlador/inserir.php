@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // incloem el fitxer de inserir que conté la funció insertArticle
-require "../Model/inserir.php";
+require_once "../Model/inserir.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // obtenim les dades del formulari
@@ -43,5 +43,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- tornem a mostrar el formulari amb les dades ja introduides per agilitzar el proces de repetir l'accio -->
 <?php
-include "../Vistes/Inserir.php";
+include_once "../Vistes/Inserir.php";
 ?>

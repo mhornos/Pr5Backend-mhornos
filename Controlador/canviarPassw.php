@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require "../Model/canviarPassw.php";
+require_once "../Model/canviarPassw.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuari = $_SESSION['usuari'] ?? null;

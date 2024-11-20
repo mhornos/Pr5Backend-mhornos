@@ -16,7 +16,7 @@ function modificarArticle($marca, $model, $color, $matricula, $imatge, $id) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        require "connexio.php";
+        require_once "connexio.php";
 
         // verifiquem si la nova matrícula ja existeix en un altre article
         $consultaMatricula = $connexio->prepare("SELECT COUNT(*) FROM article WHERE matricula = :matricula AND id != :id");

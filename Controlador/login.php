@@ -5,8 +5,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require "../Model/login.php";
-require "cookies.php";
+require_once "../Model/login.php";
+require_once "cookies.php";
 
 // procesem el formulari de login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

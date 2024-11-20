@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // incloem el fitxer de esborrar que conté la funció esborrarArticle
-require "../Model/esborrar.php";
+require_once "../Model/esborrar.php";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

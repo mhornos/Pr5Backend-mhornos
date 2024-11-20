@@ -1,3 +1,7 @@
+-- Creación de la base de datos
+CREATE DATABASE IF NOT EXISTS `pt05_miguel_hornos` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `pt05_miguel_hornos`;
+
 
 -- Creación de la tabla usuaris
 CREATE TABLE `usuaris` (

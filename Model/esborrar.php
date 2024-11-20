@@ -5,7 +5,7 @@
 function esborrarArticle($id,$usuari){
     try {
         // ens connectem amb la base de dades
-        require "connexio.php";
+        require_once "connexio.php";
 
         // array per guardar els errors que es puguin produir durant la validació
         $errors = [];

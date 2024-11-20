@@ -4,7 +4,7 @@
 
 function obtenirUsuariContrasenya($usuari){
         //ens conectem a la bd
-        require "connexio.php";
+        require_once "connexio.php";
 
         //fem la consulta sql
         $consulta = $connexio->prepare("SELECT contrasenya FROM usuaris WHERE nombreUsuario = :usuari");
@@ -16,7 +16,7 @@ function obtenirUsuariContrasenya($usuari){
 function canviarContrasenya($usuari, $novaContrasenya){
     try{
         //ens conectem a la bd
-        require "connexio.php";
+        require_once "connexio.php";
 
         //fem la consulta sql
         $novaContrasenyaEncriptada = password_hash($novaContrasenya, PASSWORD_DEFAULT);

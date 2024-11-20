@@ -7,7 +7,7 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        require "connexio.php";
+        require_once "connexio.php";
 
         // comprovem si el nom d'usuari ja existeix
         $consultaExistenciaUsuari = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");

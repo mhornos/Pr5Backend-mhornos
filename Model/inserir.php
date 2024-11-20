@@ -8,7 +8,7 @@ function insertArticle($marca, $model, $color, $matricula, $imatge, $usuari) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        require "connexio.php";
+        require_once "connexio.php";
 
         // verifiquem si la matrícula ja existeix a la base de dades
         $consultaMatricula = $connexio->prepare("SELECT COUNT(*) FROM article WHERE matricula = :matricula");

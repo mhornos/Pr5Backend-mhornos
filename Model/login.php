@@ -5,7 +5,7 @@
 function iniciarSesio($usuari,$contrasenya){
     try{
         // ens connectem amb la base de dades
-        require "connexio.php";
+        require_once "connexio.php";
 
         //comprobem si l'usuari existeix
         $existeixUsuari = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");

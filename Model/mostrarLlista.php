@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // conectar a la bd amb PDO
 try {
     //ens conectem a la bd
-    require "connexio.php";
+    require_once "connexio.php";
     
     // definir el el nombre de resultats per página
     $resultatsPerPagina = 5;
@@ -21,12 +21,12 @@ try {
     $offset = ($paginaActual - 1) * $resultatsPerPagina;
     
     // verificar si l'usuari está loguejat
-    $usuarioLogueado = isset($_SESSION['usuari']) ? $_SESSION['usuari'] : null;
+    $usuariLoguejat = isset($_SESSION['usuari']) ? $_SESSION['usuari'] : null;
 
-    if ($usuarioLogueado) {
+    if ($usuariLoguejat) {
         // si l'usuari está loguejat, mostrar nomes els seus articles
         $consultaTotal = $connexio->prepare("SELECT COUNT(*) as total FROM article WHERE nom_usuari = :nom_usuari");
-        $consultaTotal->bindValue(':nom_usuari', $usuarioLogueado, PDO::PARAM_STR);
+        $consultaTotal->bindValue(':nom_usuari', $usuariLoguejat, PDO::PARAM_STR);
 
         $consulta = $connexio->prepare("
             SELECT a.*, u.ciutat 
@@ -35,7 +35,7 @@ try {
             WHERE a.nom_usuari = :nom_usuari
             LIMIT :offset, :limit
         ");
-        $consulta->bindValue(':nom_usuari', $usuarioLogueado, PDO::PARAM_STR);
+        $consulta->bindValue(':nom_usuari', $usuariLoguejat, PDO::PARAM_STR);
     } else {
         // si no está loguejat, mostrar tots els articles
         $consultaTotal = $connexio->prepare("SELECT COUNT(*) as total FROM article");
@@ -99,7 +99,7 @@ try {
                 echo "<img src='" . htmlspecialchars($article['imatge']) . "' width='150'>";
             } else {
                 // si no hi ha imatge
-                echo "<p>No hi ha imatge</p>";
+                echo "<p><br>No hi ha imatge</p>";
             }
             echo "</div>";
         }
