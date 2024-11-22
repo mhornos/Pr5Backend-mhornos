@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // incloem el fitxer de modificar que conté la funció modificarArticle
-require_once "../Model/modificar.php";
+require "../Model/modificar.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -49,5 +49,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!-- tornem a mostrar el formulari amb les dades ja introduides per agilitzar el proces de repetir l'accio -->
 <?php
-include_once "../Vistes/Modificar.php";
+include "../Vistes/Modificar.php";
 ?>

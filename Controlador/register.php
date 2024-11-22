@@ -2,7 +2,7 @@
 
 <?php
 // incloem el fitxer de registre que conté la funció crearUsuari
-require_once "../Model/register.php";
+require "../Model/register.php";
 
 // comprovem si la petició s'ha fet mitjançant POST (formulari enviat)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -42,5 +42,5 @@
 
 <!-- mostra la llista d'articles a sota de tot -->
 <?php
-include_once "../Model/mostrarLlista.php";
+include_once "../Controlador/llistaArticles.php";
 ?>

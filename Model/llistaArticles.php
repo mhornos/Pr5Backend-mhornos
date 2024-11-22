@@ -1,15 +1,16 @@
-<!-- modelo.php -->
+<!-- Miguel Angel Hornos Granda -->
+
 <?php
 
 function obtenirTotalArticles($usuariLoguejat = null) {
-    require_once "connexio.php";
+    require "connexio.php";
     
     if ($usuariLoguejat) {
-        // Si l'usuari està loguejat, obtenir només els seus articles
+        // si l'usuari està loguejat, obtenir només els seus articles
         $consultaTotal = $connexio->prepare("SELECT COUNT(*) as total FROM article WHERE nom_usuari = :nom_usuari");
         $consultaTotal->bindValue(':nom_usuari', $usuariLoguejat, PDO::PARAM_STR);
     } else {
-        // Si no està loguejat, obtenir tots els articles
+        // si no està loguejat, obtenir tots els articles
         $consultaTotal = $connexio->prepare("SELECT COUNT(*) as total FROM article");
     }
 
@@ -18,13 +19,13 @@ function obtenirTotalArticles($usuariLoguejat = null) {
 }
 
 function obtenirArticles($paginaActual, $resultatsPerPagina, $usuariLoguejat = null) {
-    require_once "connexio.php";
+    require "connexio.php";
     
-    // Calcular l'offset
+    // calcular l'offset
     $offset = ($paginaActual - 1) * $resultatsPerPagina;
 
     if ($usuariLoguejat) {
-        // Si l'usuari està loguejat, obtenir només els seus articles
+        // si l'usuari està loguejat, obtenir només els seus articles
         $consulta = $connexio->prepare("
             SELECT a.*, u.ciutat 
             FROM article a 
@@ -34,7 +35,7 @@ function obtenirArticles($paginaActual, $resultatsPerPagina, $usuariLoguejat = n
         ");
         $consulta->bindValue(':nom_usuari', $usuariLoguejat, PDO::PARAM_STR);
     } else {
-        // Si no està loguejat, obtenir tots els articles
+        // si no està loguejat, obtenir tots els articles
         $consulta = $connexio->prepare("
             SELECT a.*, u.ciutat 
             FROM article a 

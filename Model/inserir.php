@@ -8,7 +8,7 @@ function insertArticle($marca, $model, $color, $matricula, $imatge, $usuari) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        require_once "connexio.php";
+        require "connexio.php";
 
         // verifiquem si la matrícula ja existeix a la base de dades
         $consultaMatricula = $connexio->prepare("SELECT COUNT(*) FROM article WHERE matricula = :matricula");
@@ -47,7 +47,6 @@ function insertArticle($marca, $model, $color, $matricula, $imatge, $usuari) {
         }
         
     } catch (PDOException $e) {
-    // en cas d'error de connexió mostrem el missatge d'error
     echo "error de connexió: " . $e->getMessage() . " ❌";
     }
 }

@@ -1,7 +1,7 @@
 <!-- Miguel Angel Hornos -->
 
 <?php
-require_once "cookies.php";
+require "cookies.php";
 
 //destruim la sessió y redirigim a inici
 session_start();

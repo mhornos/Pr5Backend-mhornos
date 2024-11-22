@@ -1,10 +1,17 @@
+<!-- Miguel Angel Hornos Granda -->
+
 <?php
+require_once __DIR__ . '/../env.php';
+
+$host = DB_VAR['DB_HOST'];
+$dbname = DB_VAR['DB_NAME'];
+$username = DB_VAR['DB_USER'];
+$password = DB_VAR['DB_PASSWORD'];
 
 try{
-    $connexio = new PDO('mysql:host=localhost;dbname=pt05_miguel_hornos', 'root', ''); 
+    $connexio = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $connexio->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }catch (PDOException $e) {
-    // en cas d'error de connexió mostrem el missatge d'error
     echo "error de connexió: " . $e->getMessage() . " ❌";    
 }  
 

@@ -1,10 +1,9 @@
 <!-- Miguel Angel Hornos Granda -->
 
 <?php
-
 function obtenirUsuariContrasenya($usuari){
         //ens conectem a la bd
-        require_once "connexio.php";
+        require "connexio.php";
 
         //fem la consulta sql
         $consulta = $connexio->prepare("SELECT contrasenya FROM usuaris WHERE nombreUsuario = :usuari");
@@ -16,7 +15,7 @@ function obtenirUsuariContrasenya($usuari){
 function canviarContrasenya($usuari, $novaContrasenya){
     try{
         //ens conectem a la bd
-        require_once "connexio.php";
+        require "connexio.php";
 
         //fem la consulta sql
         $novaContrasenyaEncriptada = password_hash($novaContrasenya, PASSWORD_DEFAULT);
@@ -26,7 +25,6 @@ function canviarContrasenya($usuari, $novaContrasenya){
         $consulta->bindParam(":usuari", $usuari);
         return $consulta->execute();    
     }catch (PDOException $e) {
-        // en cas d'error de connexió mostrem el missatge d'error
         echo "Error de connexió: " . $e->getMessage() . " ❌";
         
     }

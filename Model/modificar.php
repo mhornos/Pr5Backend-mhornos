@@ -16,7 +16,7 @@ function modificarArticle($marca, $model, $color, $matricula, $imatge, $id) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        require_once "connexio.php";
+        require "connexio.php";
 
         // verifiquem si la nova matrícula ja existeix en un altre article
         $consultaMatricula = $connexio->prepare("SELECT COUNT(*) FROM article WHERE matricula = :matricula AND id != :id");
@@ -145,7 +145,6 @@ function modificarArticle($marca, $model, $color, $matricula, $imatge, $id) {
         }
 
     } catch (PDOException $e) {
-        // en cas d'error de connexió mostrem el missatge d'error
         echo "error de connexió: " . $e->getMessage() . " ❌";
     }
 }

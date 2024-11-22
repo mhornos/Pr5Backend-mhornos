@@ -5,7 +5,7 @@
 function iniciarSesio($usuari,$contrasenya){
     try{
         // ens connectem amb la base de dades
-        require_once "connexio.php";
+        require "connexio.php";
 
         //comprobem si l'usuari existeix
         $existeixUsuari = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");
@@ -28,7 +28,6 @@ function iniciarSesio($usuari,$contrasenya){
         }
 
     } catch (PDOException $e) {
-        // en cas d'error de connexió mostrem el missatge d'error
         echo "Error de connexió: " . $e->getMessage() . " ❌";
         
     }

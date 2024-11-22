@@ -7,7 +7,7 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
         $errors = [];
 
         // ens connectem amb la base de dades
-        require_once "connexio.php";
+        require "connexio.php";
 
         // comprovem si el nom d'usuari ja existeix
         $consultaExistenciaUsuari = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");
@@ -46,7 +46,6 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
 
         echo "usuari creat correctament! ✅";
     } catch (PDOException $e) {
-        // en cas d'error de connexió mostrem el missatge d'error
         echo "error de connexió: " . $e->getMessage() . " ❌";
     }
 }
