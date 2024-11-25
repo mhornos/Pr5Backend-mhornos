@@ -30,15 +30,15 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
             foreach ($errors as $error) {
                 echo "<p>$error</p>";
             }
-            return; // finalitzem l'execució si hi ha errors
+            return;
         }
 
         // si no existeix, creem el nou usuari
-        $contrasenyaEncriptada = password_hash($contrasenya, PASSWORD_DEFAULT); // encriptar la contrasenya
+        $contrasenyaEncriptada = password_hash($contrasenya, PASSWORD_DEFAULT); 
 
         $insert = $connexio->prepare("INSERT INTO usuaris (nombreUsuario, contrasenya, correo, ciutat) VALUES (:usuari, :contrasenya, :correu, :ciutat)");
         $insert->bindParam(':usuari', $usuari);
-        $insert->bindParam(':contrasenya', $contrasenyaEncriptada); // inserir contrasenya encriptada
+        $insert->bindParam(':contrasenya', $contrasenyaEncriptada); 
         $insert->bindParam(':ciutat', $ciutat);
         $insert->bindParam(':correu', $correu);
 

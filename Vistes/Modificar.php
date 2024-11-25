@@ -11,15 +11,14 @@
     <link rel="stylesheet" href="..\Estils\estils.css">
 </head>
 <body>
-    <!-- formulario per omplir l'id i modificar el titol i el cos -->
+    <!-- formulari per omplir l'id i modificar el titol i el cos -->
     <h2>Modificar vehicle de la BD</h2><br>
 
     <form action="../Controlador/modificar.php" method="post">
         <table>
-        <label for="id">ID:  </label>    
-        <input type="text" id="id" name="id" placeholder="Introdueix ID del vehicle a editar*" value="<?php echo htmlspecialchars($id ?? ''); ?>">
-        
-        <input type="text" id="marca" name="marca" placeholder="Edita la marca" value="<?php echo htmlspecialchars($marca ?? ''); ?>">
+            <input type="text" id="id" name="id" placeholder="Introdueix ID del vehicle a editar*">
+            
+            <input type="text" id="marca" name="marca" placeholder="Edita la marca">
 
             <input type="text" id="model" name="model" placeholder="Edita el model" value="<?php echo htmlspecialchars($model ?? ''); ?>">
 
@@ -30,7 +29,7 @@
             <input type="text" id="imatge" name="imatge" placeholder="Introdueix l'enllaç de la imatge" value="<?php echo htmlspecialchars($imatge ?? ''); ?>">
 
             <input type="submit" value="Modificar" name="Enviar">
-            <input type="reset" value="Buidar">
+            <input type="reset" name="reset" value="Buidar">
         </table>     
     </form>
 <!-- botó per tornar a començar amb l'ultima pagina de la llista escollida-->
@@ -40,7 +39,7 @@
 </body>
 </html>
 
-<!-- mostra la llista d'articles a sota de tot -->
 <?php
+// mostra la llista d'articles a sota de tot
 include_once "../Controlador/llistaArticles.php";
 ?>
