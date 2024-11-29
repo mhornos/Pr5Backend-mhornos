@@ -12,6 +12,7 @@ require "cookies.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuari = $_POST["usuari"] ?? null;
     $contrasenya = $_POST["contrasenya"] ?? null;
+    $rememberMe = isset($_POST["remember_me"]) && $_POST["remember_me"] == "1";
 
     $errors = [];
 
@@ -24,9 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // si no hi ha errors intentem iniciar sessió
     if(empty($errors)){
-        if (iniciarSesio($usuari, $contrasenya)){
+        if ($usuariDades = iniciarSesio($usuari, $contrasenya)){
             $_SESSION["usuari"] = $usuari;  
-            establirCookie("usuari", $usuari); 
+            if ($rememberMe) {
+                crearCookie("usuari", $usuari);
+                crearCookie("contrasenya", $contrasenya);
+            } else {
+                eliminarCookie("usuari");
+                eliminarCookie("contrasenya");
+            }
             header("Location: ../Index.php");
             exit;
         } else {
@@ -56,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="usuari" placeholder="Usuari" value="<?php echo htmlspecialchars($usuari ?? ''); ?>">
         <input type="password" name="contrasenya" placeholder="Contrasenya" value="">
         <input type="submit" name="Login" value="Login">
+        <input type="checkbox" name="remember_me" value="1" <?php echo isset($_COOKIE["usuari"]) ? "checked" : ""; ?>> Recordar-me </br>
         No tinc compte: <a href="../Vistes/Register.php"> Crea un compte </a><br>
         He oblidat la contrasenya: <a href="../Vistes/forgotPassw.php"> Recuperar-la </a>
 

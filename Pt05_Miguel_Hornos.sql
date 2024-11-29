@@ -1,4 +1,5 @@
 -- Creación de la base de datos
+DROP DATABASE IF EXISTS pt05_miguel_hornos;
 CREATE DATABASE IF NOT EXISTS `pt05_miguel_hornos` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `pt05_miguel_hornos`;
 
@@ -12,6 +13,8 @@ CREATE TABLE `usuaris` (
     `ciutat` varchar(100) NOT NULL, -- Ciudad
     `token` varchar(255) DEFAULT NULL, -- Nueva columna: Token para recuperación de contraseña
     `expiracio_token` datetime DEFAULT NULL, -- Nueva columna: Expiración del token
+    `remember_token` varchar(255) DEFAULT NULL, -- Nueva columna: Token para recuperación de contraseña
+    `remember_token_expiracio` datetime DEFAULT NULL, -- Nueva columna: Expiración del token
     PRIMARY KEY (`ID`), -- Clave primaria en el campo ID
     UNIQUE (`nombreUsuario`), -- El nombre de usuario debe ser único
     UNIQUE (`correo`) -- Aseguramos que no haya correos duplicados

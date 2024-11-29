@@ -2,7 +2,7 @@
 
 <?php
 // funció per establir una cookie
-function establirCookie($nom, $valor, $durada = 86400 * 30) { // durada per defecte de 30 dies
+function crearCookie($nom, $valor, $durada = 86400 * 30) { // durada per defecte de 30 dies
     setcookie($nom, $valor, time() + $durada, "/"); // "/" fa que la cookie estigui disponible a tot el lloc
 }
 
@@ -22,4 +22,4 @@ function obtenirCookie($nom) {
         <div class="salutacio">
             Benvingut, <?php echo htmlspecialchars(obtenirCookie("usuari")); ?>! 👋
         </div>
-    <?php endif; ?>
+<?php endif; ?>

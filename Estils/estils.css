@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: url('../imgs/fons.jpg') no-repeat center center fixed; /* Asegúrate de reemplazar con la URL de tu imagen */
+    background: url('../imgs/fons.jpg') no-repeat center fixed; /* Asegúrate de reemplazar con la URL de tu imagen */
     background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
     color: #333;
     padding: 20px;
