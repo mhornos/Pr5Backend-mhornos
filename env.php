@@ -9,4 +9,6 @@ define('DB_VAR', [
 ]);
 
 define('BASE_PATH', dirname(__DIR__) . '/');
+
+define("clauSecreta", "6LeX8Y0qAAAAADqjBOdO0FBc0N7zQq4lh5JiZCgV");
 ?>
