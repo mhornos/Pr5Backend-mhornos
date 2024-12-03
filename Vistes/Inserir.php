@@ -16,15 +16,11 @@
     <form action="../Controlador/inserir.php" method="post">
         <table>
             <input type="text" id="marca" name="marca" placeholder="Introdueix la marca del vehicle*" value="<?php echo htmlspecialchars($marca ?? ''); ?>">
-
             <input type="text" id="model" name="model" placeholder="Introdueix el model del vehicle*" value="<?php echo htmlspecialchars($model ?? ''); ?>">
-            
+            <input type="number" id="any" name="any" placeholder="Introdueix l'any del vehicle*" value="<?php echo htmlspecialchars($any ?? ''); ?>" max="<?php echo date('Y'); ?>">
             <input type="text" id="color" name="color" placeholder="Introdueix el color del vehicle*" value="<?php echo htmlspecialchars($color ?? ''); ?>">
-
             <input type="text" id="matricula" name="matricula" placeholder="Introdueix la matricula del vehicle*" value="<?php echo htmlspecialchars($matricula ?? ''); ?>">
-
             <input type="text" id="imatge" name="imatge" placeholder="Introdueix l'enllaç de la imatge (opcional)" value="<?php echo htmlspecialchars($imatge ?? ''); ?>">
-
             <input type="submit" value="Inserir" name="Enviar">
             <input type="reset" value="Buidar">
         </table>     

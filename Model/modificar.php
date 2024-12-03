@@ -3,7 +3,7 @@
 <?php
 
 // funció per modificar articles
-function modificarArticle($marca, $model, $color, $matricula, $imatge, $id) {
+function modificarArticle($marca, $model, $any, $color, $matricula, $imatge, $id) {
     try {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -70,6 +70,15 @@ function modificarArticle($marca, $model, $color, $matricula, $imatge, $id) {
             $modificarDades .= "model = :model";
             $primeraModificacio = false;
         }
+
+        // si s'omple el any l'afegim a la consulta
+        if (!empty($any)) {
+            if (!$primeraModificacio) {
+                $modificarDades .= ", ";
+            }
+            $modificarDades .= "any = :any";
+            $primeraModificacio = false;
+        }
         
         // si s'omple el color l'afegim a la consulta
         if (!empty($color)) {
@@ -123,6 +132,10 @@ function modificarArticle($marca, $model, $color, $matricula, $imatge, $id) {
         
         if (!empty($model)) {
             $consultaModif->bindParam(':model', $model);
+        }
+
+        if (!empty($any)) {
+            $consultaModif->bindParam(':any', $any);
         }
         
         if (!empty($color)) {

@@ -2,7 +2,7 @@
 
 <?php
 // funció per inserir articles
-function insertArticle($marca, $model, $color, $matricula, $imatge, $usuari) {
+function insertArticle($marca, $model, $any, $color, $matricula, $imatge, $usuari) {
     try {
         // array per guardar els errors que es puguin produir durant la validació
         $errors = [];
@@ -15,7 +15,7 @@ function insertArticle($marca, $model, $color, $matricula, $imatge, $usuari) {
         $consultaMatricula->bindParam(':matricula', $matricula);
         $consultaMatricula->execute();
         $matriculaExisteix = $consultaMatricula->fetchColumn();
-
+            
         if ($matriculaExisteix > 0) {
             $errors[] = "la matrícula '" . htmlspecialchars($matricula) . "' ja existeix ❌";
         }
@@ -29,10 +29,11 @@ function insertArticle($marca, $model, $color, $matricula, $imatge, $usuari) {
         }
         
         // preparem la consulta per inserir l'article a la base de dades
-        $consultaInsert = $connexio->prepare("INSERT INTO article (marca, model, color, matricula, nom_usuari, imatge) 
-                                                VALUES (:marca, :model, :color, :matricula, :nom_usuari, :imatge)");
+        $consultaInsert = $connexio->prepare("INSERT INTO article (marca, model, any, color, matricula, nom_usuari, imatge) 
+                                                VALUES (:marca, :model, :any, :color, :matricula, :nom_usuari, :imatge)");
         $consultaInsert->bindParam(':marca', $marca);
         $consultaInsert->bindParam(':model', $model);
+        $consultaInsert->bindParam(':any', $any);
         $consultaInsert->bindParam(':color', $color);
         $consultaInsert->bindParam(':matricula', $matricula);
         $consultaInsert->bindParam(':nom_usuari', $usuari);

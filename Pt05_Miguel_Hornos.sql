@@ -32,6 +32,7 @@ CREATE TABLE `article` (
   `ID` int(11) NOT NULL AUTO_INCREMENT, -- Clave primaria
   `marca` varchar(100) NOT NULL, -- Marca
   `model` varchar(100) NOT NULL, -- Modelo
+  `any` int(4) NOT NULL,
   `color` varchar(50) NOT NULL, -- Color
   `matricula` varchar(20) NOT NULL, -- Matrícula
   `nom_usuari` varchar(50) DEFAULT NULL, -- Columna para el nombre de usuario que escribió el artículo
@@ -41,17 +42,17 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Inserción de datos en la tabla article
-INSERT INTO `article` (`marca`, `model`, `color`, `matricula`, `nom_usuari`,`imatge`) VALUES
-('Toyota', 'Corolla', 'Blanc', '1234ABC', 'Miguel', 'https://noticias.coches.com/wp-content/uploads/2014/10/toyota_corolla-gt-s-sport-liftback-ae86-1985-86_r10.jpg'),
-('Ford', 'Fiesta', 'Blau', '5678DEF', 'Miguel', 'https://tennants.blob.core.windows.net/stock/142185-0.jpg?v=63615747600000'),
-('Honda', 'Civic', 'Verd', '9101GHI', 'Fran', 'https://live.staticflickr.com/2337/1870361700_31046bb363_c.jpg'),
-('Volkswagen', 'Polo', 'Blau', '3568JMG', 'Hector', 'https://www.km77.com/media/fotos/volkswagen_polo_2005_1854_1.jpg'),
-('BMW', 'e90 320d', 'Negre', '6733DGS', 'Miguel', 'https://www.largus.fr/images/styles/max_1300x1300/public/images/top-ventes-occasion-2016-07.jpg?itok=qlbyDvaA'),
-('Volkswagen', 'Kombi', 'Blau', '6434DSA', 'Fran', 'https://a.ccdn.es/cnet/2023/06/15/55373819/682216819_g.jpg'),
-('Dodge', 'Challenger', 'Negre', '0954OIS', 'Fran', 'https://www.buscocoches.com/data/vehicles/76563579714E32BD907FCE57C12CA61B@1706013716425@690x460-adjust_middle.jpg'),
-('Mazda', 'Mx5', 'Vermell', '4321KKL', 'Hector', 'https://images.classic.com/vehicles/d6e13b05eef5cda655d726d7b4631f31.jpeg?ar=16%3A9&fit=crop&w=600'),
-('Porsche', 'GT3 RS', 'Gris', '9999FSA', 'Miguel', 'https://images0.autocasion.com/unsafe/origxorig/ad/19/1281/4bf586922f5544159059695d4c1fdfb1460b6101.jpeg'),
-('Lexus', 'LFA V10', 'Blanc', '1282AOI', 'Fran', 'https://periodismodelmotor.com/venta-lexus-lfa-2011-6-000-km/337385/venta-lexus-lfa-2011/');
+INSERT INTO `article` (`marca`, `model`, `any`, `color`, `matricula`, `nom_usuari`,`imatge`) VALUES
+('Toyota', 'Corolla', '1985', 'Blanc', '1234ABC', 'Miguel', 'https://noticias.coches.com/wp-content/uploads/2014/10/toyota_corolla-gt-s-sport-liftback-ae86-1985-86_r10.jpg'),
+('Ford', 'Fiesta', '1988', 'Blau', '5678DEF', 'Miguel', 'https://tennants.blob.core.windows.net/stock/142185-0.jpg?v=63615747600000'),
+('Honda', 'Civic', '1995', 'Verd', '9101GHI', 'Fran', 'https://live.staticflickr.com/2337/1870361700_31046bb363_c.jpg'),
+('Volkswagen', 'Polo', '2008', 'Blau', '3568JMG', 'Hector', 'https://www.km77.com/media/fotos/volkswagen_polo_2005_1854_1.jpg'),
+('BMW', 'e90 320d','2006', 'Negre', '6733DGS', 'Miguel', 'https://www.largus.fr/images/styles/max_1300x1300/public/images/top-ventes-occasion-2016-07.jpg?itok=qlbyDvaA'),
+('Volkswagen', 'Kombi', '1966', 'Blau', '6434DSA', 'Fran', 'https://a.ccdn.es/cnet/2023/06/15/55373819/682216819_g.jpg'),
+('Dodge', 'Challenger', '2015', 'Negre', '0954OIS', 'Fran', 'https://www.buscocoches.com/data/vehicles/76563579714E32BD907FCE57C12CA61B@1706013716425@690x460-adjust_middle.jpg'),
+('Mazda', 'Mx5', '1997', 'Vermell', '4321KKL', 'Hector', 'https://images.classic.com/vehicles/d6e13b05eef5cda655d726d7b4631f31.jpeg?ar=16%3A9&fit=crop&w=600'),
+('Porsche', 'GT3 RS', '2019', 'Gris', '9999FSA', 'Miguel', 'https://images0.autocasion.com/unsafe/origxorig/ad/19/1281/4bf586922f5544159059695d4c1fdfb1460b6101.jpeg'),
+('Lexus', 'LFA V10', '2011', 'Blanc', '1282AOI', 'Fran', 'https://periodismodelmotor.com/venta-lexus-lfa-2011-6-000-km/337385/venta-lexus-lfa-2011/');
 
 
 -- Ajustes de AUTO_INCREMENT para las tablas

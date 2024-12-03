@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"] ?? null;
     $marca = $_POST["marca"] ?? null;
     $model = $_POST["model"] ?? null;
+    $any = $_POST["any"] ?? null;
     $color = $_POST["color"] ?? null;
     $matricula = $_POST["matricula"] ?? null;
     $imatge = $_POST["imatge"] ?? null;
@@ -35,14 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // si no hi ha errors, modifiquem l'article cridant la funció modificarArticle
     if (empty($errors)) {
-        modificarArticle($marca, $model, $color, $matricula, $imatge, $id);
+        modificarArticle($marca, $model, $any, $color, $matricula, $imatge, $id);
     }  
 
     // mostrem tots els errors trobats en el procés de validació
     foreach ($errors as $error) {
         echo "<p>$error</p>";
     }
-    
 }
 ?>
 

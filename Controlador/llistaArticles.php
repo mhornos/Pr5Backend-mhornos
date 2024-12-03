@@ -60,8 +60,8 @@ if (count($articles) > 0) {
     foreach ($articles as $article) {
         echo "<div class='article-box'>";
         echo "<td>" . htmlspecialchars($article['ID']) . "</td>";
-        echo "<h3>" . htmlspecialchars($article['marca']) . "</h3>";
-        echo "<p><strong>Model:</strong> " . htmlspecialchars($article['model']) . "</p>";
+        echo "<h3>" . htmlspecialchars($article['marca']) . " " . $article['model'] .  "</h3>";
+        echo "<p><strong>Any:</strong> " . htmlspecialchars($article['any']) . "</p>";
         echo "<p><strong>Color:</strong> " . htmlspecialchars($article['color']) . "</p>";
         echo "<p><strong>Matrícula:</strong> " . htmlspecialchars($article['matricula']) . "</p>";
         echo "<p><strong>Mecànic:</strong> " . htmlspecialchars($article['nom_usuari']) . "</p>";

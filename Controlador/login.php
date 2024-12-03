@@ -32,8 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "has de completar el reCAPTCHA ❌";
     }
 
-
-
     //si no hi ha errors inicia sessió, sino s'activa el recaptcha 
     if(empty($errors)){
         if (isset($_SESSION["intentsFallats"]) && $_SESSION["intentsFallats"] >= 3){
