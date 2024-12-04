@@ -1,4 +1,9 @@
+/* font de text */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
 /* General */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +12,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: url('../imgs/fons.jpg') no-repeat center fixed; /* Asegúrate de reemplazar con la URL de tu imagen */
-    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background: url('../imgs/fons.jpg') no-repeat center fixed; 
+    background-size: cover; 
     color: #333;
     padding: 20px;
     display: flex;
@@ -44,6 +49,15 @@ body {
 }
 
 /* Títulos */
+h1 {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 60px; 
+
+}
+
 h3 {
     margin-bottom: 20px;
     color: #444;

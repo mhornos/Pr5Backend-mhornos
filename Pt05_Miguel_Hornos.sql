@@ -11,7 +11,7 @@ CREATE TABLE `usuaris` (
     `contrasenya` varchar(255) NOT NULL, -- Contraseña
     `correo` varchar(100) NOT NULL, -- Correo
     `ciutat` varchar(100) NOT NULL, -- Ciudad
-    `imatge` varchar(255) DEFAULT NULL, -- Columna para almacenar la ruta de la imagen (opcional)
+    `imatge` varchar(1024) DEFAULT NULL, -- Columna para almacenar la ruta de la imagen (opcional)
     `token` varchar(255) DEFAULT NULL, -- Nueva columna: Token para recuperación de contraseña
     `expiracio_token` datetime DEFAULT NULL, -- Nueva columna: Expiración del token
     `remember_token` varchar(255) DEFAULT NULL, -- Nueva columna: Token para recuperación de contraseña
@@ -37,7 +37,7 @@ CREATE TABLE `article` (
   `color` varchar(50) NOT NULL, -- Color
   `matricula` varchar(20) NOT NULL, -- Matrícula
   `nom_usuari` varchar(50) DEFAULT NULL, -- Columna para el nombre de usuario que escribió el artículo
-  `imatge` varchar(255) DEFAULT NULL, -- Columna para almacenar la ruta de la imagen (opcional)
+  `imatge` varchar(1024) DEFAULT NULL, -- Columna para almacenar la ruta de la imagen (opcional)
   PRIMARY KEY (`ID`), -- Clave primaria en el campo ID
   CONSTRAINT `fk_nomUsuari` FOREIGN KEY (`nom_usuari`) REFERENCES `usuaris` (`nombreUsuario`) ON DELETE CASCADE ON UPDATE CASCADE -- Relación entre article y usuaris
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

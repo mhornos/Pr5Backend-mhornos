@@ -18,7 +18,7 @@ require_once "Controlador/gestioSessio.php";
         <link rel="stylesheet" href="Estils\estils.css">
     </head>
     <body>
-        <h1>MECÀNIC ADMIN DE GARATGES</h1><br>
+        <h1>Mecànic Admin de Garatges</h1><br>
     </body>
 </html>
 

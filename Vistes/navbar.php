@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require "Model/editarPerfil.php";
+require_once "Model/editarPerfil.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ require "Model/editarPerfil.php";
 <body>
 
     <!--si l'usuari está logat -->
-    <?php if (isset($_SESSION['usuari'])):  ?> 
+    <?php if (isset($_SESSION['usuari'])){  ?> 
         <div class="navbar">
         <div class="imatge-perfil">
                 <img src="<?php echo htmlspecialchars(obtenirImatge($_SESSION['usuari'])); ?>" alt="">
@@ -41,11 +41,11 @@ require "Model/editarPerfil.php";
         </a><br><br>
 
     <!-- si l'usuari no està logat -->
-    <?php else: ?> 
+    <?php } else{ ?> 
         <div class="navbar">
         <a href="Vistes/Login.php"><button>Logar-se</button></a>
         <a href="Vistes/Register.php"><button>Registrar-se</button></a>
         </div>
-    <?php endif; ?>
+    <?php } ?>
 </body>
 </html>

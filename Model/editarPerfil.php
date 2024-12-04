@@ -6,7 +6,6 @@
 function editarUsuari($usuari, $correu, $ciutat, $imatge){
     try {
         require "connexio.php";
-
         $usuariOriginal = $_SESSION['usuari'];
 
         // comprovem si el nom d'usuari ja existeix excloent l'actual
@@ -36,16 +35,22 @@ function editarUsuari($usuari, $correu, $ciutat, $imatge){
         }
 
         //si no hi ha errors editem l'usuari
-        $consulta = $connexio->prepare("UPDATE usuaris SET correo = :correu, ciutat = :ciutat, imatge = :imatge WHERE nombreUsuario = :usuari");
+        $consulta = $connexio->prepare("UPDATE usuaris SET nombreUsuario = :usuari, correo = :correu, ciutat = :ciutat, imatge = :imatge WHERE nombreUsuario = :usuariOriginal");
         $consulta->bindParam(':usuari', $usuari);
         $consulta->bindParam(':correu', $correu);
         $consulta->bindParam(':ciutat', $ciutat);
         $consulta->bindParam(':imatge', $imatge);
+        $consulta->bindParam(':usuariOriginal', $usuariOriginal);
+
 
         if ($consulta->execute()) {
-            echo "usuario editat correctament ✅";
-        } else {
-            echo "no s'ha pogut editar l'usuari ❌";
+            if ($consulta->rowCount() > 0) {
+                echo "usuario editat correctament ✅";
+                $_SESSION['usuari'] = $usuari;
+            } else {
+                $errorInfo = $consulta->errorInfo();
+                echo "no s'ha pogut editar l'usuari ❌ Error: " . $errorInfo[2];
+            }
         }
     } catch (PDOException $e) {
         echo "error al editar l'usuari: " . $e->getMessage() . " ❌";
@@ -92,7 +97,7 @@ function obtenirCiutat($usuari){
     }
 }
 
-//retorna la imatge del usuari actual
+//retorna la imatge del usuari actual per mostrarla a index
 function obtenirImatge($usuari){
     try {
         require "connexio.php";
@@ -109,6 +114,26 @@ function obtenirImatge($usuari){
         }
     } catch (PDOException $e) {
         return "imgs/senseFoto.png"; 
+        }
+}
+
+//retorna la imatge del usuari actual per mostrarla a la pantalla de edicio d'usuari
+function obtenirImatgeEdicio($usuari){
+    try {
+        require "connexio.php";
+
+        $consulta = $connexio->prepare("SELECT imatge FROM usuaris WHERE nombreUsuario = :usuari");
+        $consulta->bindParam(':usuari', $usuari);
+        $consulta->execute();
+        $imatge = $consulta->fetchColumn();
+
+        if ($imatge) {
+            return $imatge;
+        }if($imatge == "") {
+            return "../imgs/senseFoto.png"; 
+        }
+    } catch (PDOException $e) {
+        return "../imgs/senseFoto.png"; 
         }
 }
 
