@@ -43,6 +43,8 @@ La web consisteix en gestor de vehicles a mecanics administrador de garatges de 
    - Col·locar els fitxers PHP i CSS al directori del teu servidor localhost.
 4. **Accedir al Projecte**
    - Obrir el navegador i accedir a `http://localhost`.
+5. **Reemplaçar l'env example**
+   - Renombrar el fitxer `env-example.php` a `env.php` i afegir els parametetres propis dins d'aquest.
 
 ## Notes Addicionals
 - Assegura't que el servidor estigui en funcionament abans d'accedir a l'aplicació.
