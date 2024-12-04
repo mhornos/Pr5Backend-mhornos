@@ -1,6 +1,5 @@
-<!-- Miguel Angel Hornos Granda -->
-
 <?php
+//Miguel Angel Hornos Granda
 
 function obtenirTotalArticles($usuariLoguejat = null) {
     try{

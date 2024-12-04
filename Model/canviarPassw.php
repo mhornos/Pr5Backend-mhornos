@@ -1,6 +1,6 @@
-<!-- Miguel Angel Hornos Granda -->
-
 <?php
+//Miguel Angel Hornos Granda
+
 function obtenirUsuariContrasenya($usuari){
     try{
         //ens conectem a la bd

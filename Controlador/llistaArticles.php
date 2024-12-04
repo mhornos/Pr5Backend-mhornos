@@ -1,6 +1,6 @@
-<!-- Miguel Angel Hornos Granda -->
-
 <?php
+//Miguel Angel Hornos Granda
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

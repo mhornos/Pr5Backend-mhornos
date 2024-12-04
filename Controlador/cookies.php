@@ -1,6 +1,6 @@
-<!-- Miguel Angel Hornos -->
-
 <?php
+//Miguel Angel Hornos Granda
+
 // funció per establir una cookie
 function crearCookie($nom, $valor, $durada = 86400 * 30) { // durada per defecte de 30 dies
     setcookie($nom, $valor, time() + $durada, "/"); // "/" fa que la cookie estigui disponible a tot el lloc
@@ -17,9 +17,10 @@ function obtenirCookie($nom) {
 }
 ?>
 
-<!-- salutacio al usuari  -->
-<?php if (obtenirCookie("usuari")): ?>
+<?php
+//salutacio al usuari
+if (obtenirCookie("salutacio")): ?>
         <div class="salutacio">
-            Benvingut, <?php echo htmlspecialchars(obtenirCookie("usuari")); ?>! 👋
+            Benvingut, <?php echo htmlspecialchars($_SESSION["usuari"]); ?>! 👋
         </div>
 <?php endif; ?>

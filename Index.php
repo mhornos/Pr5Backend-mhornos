@@ -1,10 +1,11 @@
-<!-- Miguel Ángel Hornos -->
- 
-<?php
+ <?php
+//Miguel Angel Hornos Granda
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+require "Controlador/cookies.php";
 require_once "Controlador/gestioSessio.php";
 ?>
 

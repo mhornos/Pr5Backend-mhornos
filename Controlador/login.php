@@ -1,6 +1,6 @@
-<!-- Miguel Angel Hornos -->
-
 <?php
+//Miguel Angel Hornos Granda
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -49,7 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // si no hi ha errors intentem iniciar sessió, si n'hi ha aumenta els intents
     if ($usuariDades = iniciarSesio($usuari, $contrasenya)){
         if (empty($errors)){
-            $_SESSION["usuari"] = $usuari;  
+            $_SESSION["usuari"] = $usuari; 
+            crearCookie("salutacio", $usuari); 
             if ($rememberMe) {
                 crearCookie("usuari", $usuari);
                 crearCookie("contrasenya", $contrasenya);

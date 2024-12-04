@@ -1,6 +1,5 @@
-<!-- Miguel Angel Hornos Granda -->
-
 <?php
+// Miguel Angel Hornos Granda
 
 //comproba si existeix el correu introuduit a la bd
 function existeixCorreu($correu, $connexio){

@@ -309,3 +309,34 @@ a button {
     background-color: #636363;
     transform: scale(1.05); /* Efecto de zoom suave */
 }
+
+/* imatge de perfil a index */
+.imatge-perfil {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imatge-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* imatge de perfil a editarPerfil */
+.imatge-editar {
+    width: 355px; /* Aumentamos el tamaño de la imagen */
+    height: 355px; /* Aseguramos que sea cuadrada */
+    overflow: hidden1;
+    margin-right: 15px; /* Espacio a la derecha de la imagen */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+.imatge-editar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del círculo */
+}

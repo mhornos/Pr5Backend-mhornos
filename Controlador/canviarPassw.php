@@ -1,6 +1,6 @@
-<!-- Miguel Angel Hornos Granda -->
-
 <?php
+//Miguel Angel Hornos Granda
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -57,8 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errors[] = "no has iniciat sessió ❌";
         }   
     }
-
-     
 
     // mostrar tots els errors trobats en el procés de validació
     foreach ($errors as $error) {

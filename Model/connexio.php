@@ -1,6 +1,6 @@
-<!-- Miguel Angel Hornos Granda -->
-
 <?php
+//Miguel Angel Hornos Granda
+
 require_once __DIR__ . '/../env.php';
 
 $host = DB_VAR['DB_HOST'];

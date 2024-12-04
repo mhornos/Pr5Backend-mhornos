@@ -4,6 +4,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+require "Model/editarPerfil.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +20,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <!--si l'usuari está logat -->
     <?php if (isset($_SESSION['usuari'])):  ?> 
         <div class="navbar">
+        <div class="imatge-perfil">
+                <img src="<?php echo htmlspecialchars(obtenirImatge($_SESSION['usuari'])); ?>" alt="">
+            </div>
+        <a href="Vistes/EditarPerfil.php"><button>Editar perfil</button></a>
         <a href="Controlador/logout.php"><button>Deslogar-se</button></a>
         <a href="Vistes/CanviarPassw.php"><button>Canviar password</button></a>
         </div>

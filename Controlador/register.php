@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuari = $_POST["usuari"] ?? null;
     $correu = $_POST["correu"] ?? null;
     $ciutat = $_POST["ciutat"] ?? null;
+    $imatge = $_POST["imatge"] ?? null;
     $contrasenya = $_POST["contrasenya"] ?? null;
     $contrasenya2 = $_POST["contrasenya2"] ?? null;
 
@@ -39,6 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "falta la ciutat ❌";
     }
 
+    // validar imatge si s'introudeix
+    if (!empty($imatge)) {
+        if (!filter_var($imatge, FILTER_VALIDATE_URL)) {
+            $errors[] = "l'enllaç de la imatge no és una URL vàlida ❌";
+        } 
+    }
+
     // comprovem si les contrasenyes estan buides i si coincideixen
     if (empty($contrasenya)) {
         $errors[] = "falta la contrasenya ❌";
@@ -52,17 +60,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (strlen($contrasenya) < 8) {
             $errors[] = "la contrasenya ha de tenir almenys 8 caràcters ❌";
         }
-        
         // comprovem si la contrasenya conté almenys un número
         if (!preg_match('/[0-9]/', $contrasenya)) {
             $errors[] = "la contrasenya ha de contenir almenys un número ❌";
         }
-
         // comprovem si la contrasenya conté almenys una lletra majúscula
         if (!preg_match('/[A-Z]/', $contrasenya)) {
             $errors[] = "la contrasenya ha de contenir almenys una lletra majúscula ❌";
         }
-
         // comprovem si la contrasenya conté almenys una lletra minúscula
         if (!preg_match('/[a-z]/', $contrasenya)) {
             $errors[] = "la contrasenya ha de contenir almenys una lletra minúscula ❌";
@@ -71,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // si no hi ha errors, creem l'usuari cridant la funció crearUsuari
     if (empty($errors)) {
-        crearUsuari($usuari, $contrasenya, $correu, $ciutat);
+        crearUsuari($usuari, $contrasenya, $correu, $ciutat, $imatge);
     }
 
     // mostrem tots els errors trobats en el procés de validació
@@ -98,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="usuari" placeholder="Usuari" value="<?php echo htmlspecialchars($usuari ?? ''); ?>">
         <input type="text" name="correu" placeholder="Correu" value="<?php echo htmlspecialchars($correu ?? '' ); ?>">
         <input type="text" name="ciutat" placeholder="Ciutat" value="<?php echo htmlspecialchars($ciutat ?? ''); ?>">
+        <input type="text" id="imatge" name="imatge" placeholder="Enllaç de imatge (opcional)" value="<?php echo htmlspecialchars($imatge ?? ''); ?>">
         <input type="password" name="contrasenya" placeholder="Contrasenya" value="">
         <input type="password" name="contrasenya2" placeholder="Repeteix la contrasenya" value="">
         <p>La contrasenya ha de tenir almenys 8 caràcters, un número, una majúscula i una minúscula.</p><br>

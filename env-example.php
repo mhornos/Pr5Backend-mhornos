@@ -1,6 +1,7 @@
-<!-- Miguel Angel Hornos Granda -->
 
 <?php
+// Miguel Angel Hornos Granda
+
 define('DB_VAR', [
     'DB_HOST' => '',
     'DB_NAME' => '',

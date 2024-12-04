@@ -2,7 +2,7 @@
 
 <?php
 // funció per registrar usuaris
-function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
+function crearUsuari($usuari, $contrasenya, $correu, $ciutat, $imatge) {
     try {
         $errors = [];
 
@@ -36,11 +36,12 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat) {
         // si no existeix, creem el nou usuari
         $contrasenyaEncriptada = password_hash($contrasenya, PASSWORD_DEFAULT); 
 
-        $insert = $connexio->prepare("INSERT INTO usuaris (nombreUsuario, contrasenya, correo, ciutat) VALUES (:usuari, :contrasenya, :correu, :ciutat)");
+        $insert = $connexio->prepare("INSERT INTO usuaris (nombreUsuario, contrasenya, correo, ciutat, imatge) VALUES (:usuari, :contrasenya, :correu, :ciutat, :imatge)");
         $insert->bindParam(':usuari', $usuari);
         $insert->bindParam(':contrasenya', $contrasenyaEncriptada); 
         $insert->bindParam(':ciutat', $ciutat);
         $insert->bindParam(':correu', $correu);
+        $insert->bindParam(':imatge', $imatge);
 
         $insert->execute();
 

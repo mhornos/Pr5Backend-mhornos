@@ -11,6 +11,7 @@ CREATE TABLE `usuaris` (
     `contrasenya` varchar(255) NOT NULL, -- Contraseña
     `correo` varchar(100) NOT NULL, -- Correo
     `ciutat` varchar(100) NOT NULL, -- Ciudad
+    `imatge` varchar(255) DEFAULT NULL, -- Columna para almacenar la ruta de la imagen (opcional)
     `token` varchar(255) DEFAULT NULL, -- Nueva columna: Token para recuperación de contraseña
     `expiracio_token` datetime DEFAULT NULL, -- Nueva columna: Expiración del token
     `remember_token` varchar(255) DEFAULT NULL, -- Nueva columna: Token para recuperación de contraseña
