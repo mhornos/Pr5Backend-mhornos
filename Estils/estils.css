@@ -145,7 +145,7 @@ button {
 
 /* Taula */
 table {
-    width: 100%;
+    width: 30%;
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #fff;
@@ -176,7 +176,7 @@ a {
 a button {
     width: 100%;
     display: inline-block;
-    text-align: center;
+    text-align: center;    
 }
 
 /* Estils per a la paginació */
@@ -212,7 +212,6 @@ a button {
     width: 105%; /* Cambiar a 100% para ocupar todo el ancho de la caja */
     height: auto; /* Mantener proporción de la imagen */
     border-radius: 8px;
-
     margin-top: 10px;
 }
 

@@ -18,14 +18,18 @@ require_once "Model/editarPerfil.php";
 <body>
 
     <!--si l'usuari está logat -->
-    <?php if (isset($_SESSION['usuari'])){  ?> 
+    <?php if (isset($_SESSION['usuari'])) { ?> 
         <div class="navbar">
-        <div class="imatge-perfil">
+            <div class="imatge-perfil">
                 <img src="<?php echo htmlspecialchars(obtenirImatge($_SESSION['usuari'])); ?>" alt="">
             </div>
-        <a href="Vistes/EditarPerfil.php"><button>Editar perfil</button></a>
-        <a href="Controlador/logout.php"><button>Deslogar-se</button></a>
-        <a href="Vistes/CanviarPassw.php"><button>Canviar password</button></a>
+            <a href="Vistes/EditarPerfil.php"><button>Editar perfil</button></a>
+            <a href="Controlador/logout.php"><button>Deslogar-se</button></a>
+            <a href="Vistes/CanviarPassw.php"><button>Canviar password</button></a>
+            <!-- mostrar només si l'usuari és "admin" -->
+            <?php if ($_SESSION['usuari'] === 'admin') { ?>
+                <a href="Vistes/Usuaris.php"><button>Gestionar usuaris</button></a><br><br>
+            <?php } ?>
         </div>
 
         <!-- 3 botons que ens envien al document corresponent per tractar les dades -->
@@ -40,11 +44,13 @@ require_once "Model/editarPerfil.php";
             <button>Esborrar vehicle</button>
         </a><br><br>
 
+        
+
     <!-- si l'usuari no està logat -->
-    <?php } else{ ?> 
+    <?php } else { ?> 
         <div class="navbar">
-        <a href="Vistes/Login.php"><button>Logar-se</button></a>
-        <a href="Vistes/Register.php"><button>Registrar-se</button></a>
+            <a href="Vistes/Login.php"><button>Logar-se</button></a>
+            <a href="Vistes/Register.php"><button>Registrar-se</button></a>
         </div>
     <?php } ?>
 </body>

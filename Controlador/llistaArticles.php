@@ -46,7 +46,7 @@ echo "<div class='controls-container'>";
 echo "<form method='get' class='controls'>";
 echo "<input type='text' name='cercaCriteri' value='" . htmlspecialchars($cercaCriteri) . "' placeholder='Introudeix el text per buscar:'>";
 
-echo "<button type='submit'>Cercar</button>";  
+echo "<button type='submit'>Cercar</button>";
 echo "</form>";
 
 echo "<form method='get' class='controls'>";
@@ -107,6 +107,7 @@ echo "<div class='articles-container'>";
 if (count($articles) > 0) {
     foreach ($articles as $article) {
         echo "<div class='article-box'>";
+        echo "<p>" . htmlspecialchars($article['ID']) . "</p>";  
         echo "<h3>" . htmlspecialchars($article['marca']) . " " . $article['model'] .  "</h3>";
         echo "<p><strong>Any:</strong> " . htmlspecialchars($article['any']) . "</p>";
         echo "<p><strong>Color:</strong> " . htmlspecialchars($article['color']) . "</p>";
