@@ -1,3 +1,5 @@
+
+
 /* font de text */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -69,7 +71,7 @@ form {
     width: 100%;
     max-width: 400px;
     background-color: #fff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -192,7 +194,7 @@ a button {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
-    width: 400px; /* Ajustar ancho de la cajita */
+    width: 450px; /* Ajustar ancho de la cajita */
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
@@ -342,11 +344,11 @@ a button {
 
 /* imatge de perfil a editarPerfil */
 .imatge-editar {
-    width: 355px; /* Aumentamos el tamaño de la imagen */
-    height: 355px; /* Aseguramos que sea cuadrada */
-    overflow: hidden1;
+    width: 350px; /* Aumentamos el tamaño de la imagen */
+    height: 350px; /* Aseguramos que sea cuadrada */
     margin-right: 15px; /* Espacio a la derecha de la imagen */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    align-content: center;
 }
 
 .imatge-editar img {
@@ -354,3 +356,4 @@ a button {
     height: 100%;
     object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del círculo */
 }
+

@@ -15,6 +15,7 @@ if (isset($_SESSION['usuari'])) {
             session_unset(); 
             session_destroy(); 
             require "cookies.php";
+            eliminarCookie("salutacio");
 
             // missatge que la sessió ha caducat
             echo "<script>

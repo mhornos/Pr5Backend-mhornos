@@ -28,7 +28,7 @@ require "../Model/editarPerfil.php"
     <input type="text" id="usuari" name="usuari" placeholder="Nom d'usuari" value="<?php echo htmlspecialchars($_SESSION['usuari'] ?? ''); ?>">
     <p>Editar correu electronic:</p>
     <input type="email" id="correu" name="correu" placeholder="Correu" value="<?php echo htmlspecialchars(obtenirCorreu($_SESSION['usuari']) ?? ''); ?>">
-    <p>Editar ciutat:</p>
+    <p>Editar ciutat:</p> 
     <input type="text" id="ciutat" name="ciutat" placeholder="Ciutat" value="<?php echo htmlspecialchars(obtenirCiutat($_SESSION['usuari']) ?? ''); ?>">
     <p>Editar imatge</p>
 

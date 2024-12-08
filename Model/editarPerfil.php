@@ -121,7 +121,7 @@ function obtenirImatge($usuari){
 function obtenirImatgeEdicio($usuari){
     try {
         require "connexio.php";
-
+        
         $consulta = $connexio->prepare("SELECT imatge FROM usuaris WHERE nombreUsuario = :usuari");
         $consulta->bindParam(':usuari', $usuari);
         $consulta->execute();
