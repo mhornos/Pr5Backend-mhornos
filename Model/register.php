@@ -50,4 +50,50 @@ function crearUsuari($usuari, $contrasenya, $correu, $ciutat, $imatge) {
         echo "error de connexió: " . $e->getMessage() . " ❌";
     }
 }
+
+// funció per comprovar si un usuari existeix a la bd
+function usuariExisteix($usuari) {
+    try {
+        require "connexio.php";
+
+        $consulta = $connexio->prepare("SELECT * FROM usuaris WHERE nombreUsuario = :usuari");
+        $consulta->bindParam(':usuari', $usuari);
+        $consulta->execute();
+
+        if ($consulta->rowCount() > 0) {
+            return true;  
+        } else {
+            return false;
+        }
+
+    } catch (PDOException $e) {
+        echo "Error de conexión: " . $e->getMessage();
+        return false;  
+    }
+}
+
+//crea el usuari admin si no existeix
+function crearAdmin() {
+    try {
+        require "connexio.php";
+
+        $usuari = "admin";
+        $contrasenyaEncriptada = password_hash("Admin1234_", PASSWORD_DEFAULT); 
+        $correu = "admin@gmail.com";
+        $ciutat = "admin";
+        $imatge = "";
+
+        $insert = $connexio->prepare("INSERT INTO usuaris (nombreUsuario, contrasenya, correo, ciutat, imatge) VALUES (:usuari, :contrasenya, :correu, :ciutat, :imatge)");
+        $insert->bindParam(':usuari', $usuari);
+        $insert->bindParam(':contrasenya', $contrasenyaEncriptada); 
+        $insert->bindParam(':ciutat', $ciutat);
+        $insert->bindParam(':correu', $correu);
+        $insert->bindParam(':imatge', $imatge);
+
+        $insert->execute();
+
+    } catch (PDOException $e) {
+        echo "error de connexió: " . $e->getMessage() . " ❌";
+    }
+}
 ?>

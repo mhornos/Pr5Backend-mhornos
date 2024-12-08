@@ -7,6 +7,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require "Controlador/cookies.php";
 require_once "Controlador/gestioSessio.php";
+require "Model/register.php";
+
+//crea el usuari admin si no existeix
+if (!usuariExisteix("admin")) {
+    crearAdmin();
+}
 ?>
 
 <!DOCTYPE html>
